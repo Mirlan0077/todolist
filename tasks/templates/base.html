@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <!-- Добавьте другие ссылки навигации здесь -->
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
+
+{% extends 'base.html' %}
+
+{% block title %}Task List{% endblock %}
+
+{% block content %}
+<h1>Tasks</h1>
+<ul>
+    {% for task in tasks %}
+        <li>
+            <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
