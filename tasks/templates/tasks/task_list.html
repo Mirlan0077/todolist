@@ -38,6 +38,10 @@
             background-color: rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(0, 0, 0, 0.1);
             margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
         }
         .list-group-item:hover {
             background-color: rgba(255, 255, 255, 1);
@@ -51,10 +55,29 @@
         <ul class="list-group">
             {% for task in tasks %}
                 <li class="list-group-item">
-                    <strong>{{ task.description }}</strong> - {{ task.get_status_display }} - <em>{{ task.due_date }}</em>
+                    <a href="{% url 'task_detail' task.id %}">
+                        <div>
+                            <strong>{{ task.description }}</strong> - {{ task.get_status_display }} - <em>{{ task.due_date }}</em>
+                        </div>
+                    </a>
+                    <div>
+                        <form id="delete-form-{{ task.pk }}" action="{% url 'delete_task' task.pk %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete({{ task.pk }})">Удалить</button>
+                        </form>
+                        <a href="{% url 'edit_task' task.pk %}" class="btn btn-primary btn-sm ms-1">Редактировать</a>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
     </div>
+
+    <script>
+        function confirmDelete(taskId) {
+            if (confirm('Вы уверены, что хотите удалить эту задачу?')) {
+                document.getElementById('delete-form-' + taskId).submit();
+            }
+        }
+    </script>
 </body>
 </html>
