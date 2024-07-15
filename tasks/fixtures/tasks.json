@@ -1,1 +1,11 @@
-[{"model": "tasks.task", "pk": 1, "fields": {"description": "Описание для задачи", "status": "in_progress", "due_date": "2022-02-03"}}, {"model": "tasks.task", "pk": 2, "fields": {"description": "Описание для задачи", "status": "in_progress", "due_date": "2022-02-02"}}, {"model": "tasks.task", "pk": 3, "fields": {"description": "Описание для задачи", "status": "new", "due_date": "2022-02-03"}}]
+[
+    {"model": "tasks.task", "pk": 1, "fields": {"title": "Task 1","description": "Описание для задачи", "completed": false,"status": "in_progress", "due_date": "2022-02-03"}},
+    {"model": "tasks.task", "pk": 2, "fields": {"title": "Task 2","description": "Описание для задачи", "completed": true,"status": "in_progress", "due_date": "2022-02-02"}},
+    {"model": "tasks.task", "pk": 3, "fields": {"title": "Task 3","description": "Описание для задачи", "completed": false,"status": "new", "due_date": "2022-02-03"}},
+    {"model": "tasks.task", "pk": 4, "fields": {"title": "Task 4", "description": "убраться в комнате", "completed": false, "status": "todo", "task_type": "bug", "created_at": "2024-06-10T10:00:00Z", "updated_at": "2024-07-10T10:00:00Z"}},
+    {"model": "tasks.task", "pk": 5, "fields": {"title": "Task 5", "description": "приготовить пиццу", "completed": false, "status": "in_progress", "task_type": "feature", "created_at": "2024-07-01T10:00:00Z", "updated_at": "2024-07-10T10:00:00Z"}},
+    {"model": "tasks.task", "pk": 6, "fields": {"title": "Task 6", "description": "сходить к врачу", "completed": true, "status": "done", "task_type": "feature", "created_at": "2024-06-15T10:00:00Z", "updated_at": "2024-07-05T10:00:00Z"}},
+    {"model": "tasks.task", "pk": 7, "fields": {"title": "Task 7", "description": "посмотреть кино", "completed": false, "status": "todo", "task_type": "bug", "created_at": "2024-06-20T10:00:00Z", "updated_at": "2024-07-10T10:00:00Z"}},
+    {"model": "tasks.task", "pk": 8, "fields": {"title": "Task 8", "description": "загрузить домашку", "completed": false, "status": "in_progress", "task_type": "feature", "created_at": "2024-06-25T10:00:00Z", "updated_at": "2024-07-10T10:00:00Z"}}
+]
+]
