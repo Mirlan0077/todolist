@@ -15,11 +15,11 @@ TYPE_CHOICES = [
 
 def validate_no_special_characters(value):
     if not value.isalnum():
-        raise ValidationError(_('Field must be alphanumeric'), params={'value': value})
+        raise ValidationError(_('введите численно буквенные символы'), params={'value': value})
 
 def validate_description_length(value):
     if len(value) < 10:
-        raise ValidationError(_('Description must be at least 10 characters long'))
+        raise ValidationError(_('описание не меньше 10 символов'))
 
 class Task(models.Model):
     objects = None
