@@ -25,6 +25,7 @@ def validate_description_length(value):
 
 
 class Task(models.Model):
+    objects = None
     title = models.CharField(max_length=255)
     description = models.TextField(validators=[validate_description_length])
     completed = models.BooleanField(default=False)
