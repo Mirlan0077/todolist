@@ -13,20 +13,17 @@ TYPE_CHOICES = [
     ('feature', 'Feature'),
 ]
 
-
 def validate_no_special_characters(value):
     if not value.isalnum():
-        raise ValidationError(_('Поле должно быть буквенно-цифровым'), params={'value': value})
-
+        raise ValidationError(_('Field must be alphanumeric'), params={'value': value})
 
 def validate_description_length(value):
     if len(value) < 10:
-        raise ValidationError(_('Длина описания должна составлять не менее 10 символов'))
-
+        raise ValidationError(_('Description must be at least 10 characters long'))
 
 class Task(models.Model):
     objects = None
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, validators=[validate_no_special_characters])
     description = models.TextField(validators=[validate_description_length])
     completed = models.BooleanField(default=False)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='todo')
